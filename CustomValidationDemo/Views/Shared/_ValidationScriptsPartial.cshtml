@@ -1,2 +1,16 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="~/js/isTrueClientValidation.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		// Use 'validate-if-hidden' class to validate hidden elements
+		$('form').data('validator').settings.ignore = ":hidden:not(.validate-if-hidden)";
+
+		// Validate elements after data entry
+		$('input, select, textarea').on('blur', function () {
+			$(this).valid();
+		});
+	});
+</script>

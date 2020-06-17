@@ -1,8 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TestViewModel
+@{
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" asp-for="ThisCanBeAnything" />
+		<label class="form-check-label" asp-for="ThisCanBeAnything"></label>
+		<span class="text-danger" asp-validation-for="ThisCanBeAnything"></span>
+	</div>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" asp-for="ThisMustBeTrue" />
+		<label class="form-check-label" asp-for="ThisMustBeTrue"></label>
+		<span class="text-danger" asp-validation-for="ThisMustBeTrue"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section Scripts
+{
+	<partial name="_ValidationScriptsPartial" />
+}
