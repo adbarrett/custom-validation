@@ -6,13 +6,23 @@
 <form>
 	<div class="form-group form-check">
 		<input type="checkbox" class="form-check-input" asp-for="ThisCanBeAnything" />
-		<label class="form-check-label" asp-for="ThisCanBeAnything"></label>
+		<label class="form-check-label" asp-for="ThisCanBeAnything">This can be true or false</label>
 		<span class="text-danger" asp-validation-for="ThisCanBeAnything"></span>
 	</div>
 	<div class="form-group form-check">
 		<input type="checkbox" class="form-check-input" asp-for="ThisMustBeTrue" />
-		<label class="form-check-label" asp-for="ThisMustBeTrue"></label>
+		<label class="form-check-label" asp-for="ThisMustBeTrue">This must be true</label>
 		<span class="text-danger" asp-validation-for="ThisMustBeTrue"></span>
+	</div>
+	<div class="form-check">
+		<label asp-for="Password">Password can be any strength</label>
+		<input class="form-control" asp-for="Password" />
+		<span class="text-danger" asp-validation-for="Password"></span>
+	</div>
+	<div class="form-check">
+		<label asp-for="StrongPassword">Password must have at least one upper case letter, one lower case letter, one number and one special character</label>
+		<input class="form-control" asp-for="StrongPassword" />
+		<span class="text-danger" asp-validation-for="StrongPassword"></span>
 	</div>
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>

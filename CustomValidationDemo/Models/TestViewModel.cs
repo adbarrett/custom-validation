@@ -5,11 +5,17 @@ namespace CustomValidationDemo.Models
 {
 	public class TestViewModel
 	{
-		[Display(Name = "This can be true or false")]
 		public bool ThisCanBeAnything { get; set; }
 
 		[IsTrue]
-		[Display(Name = "This must be true")]
 		public bool ThisMustBeTrue { get; set; }
+
+		[Required]
+		[DataType(DataType.Password)]
+		public string Password { get; set; }
+
+		[PasswordStrength(Length = 8, LowerCaseLetters = 1, UpperCaseLetters = 1, Numbers = 1, SpecialCharacters = 1)]
+		[DataType(DataType.Password)]
+		public string StrongPassword { get; set; }
 	}
 }
