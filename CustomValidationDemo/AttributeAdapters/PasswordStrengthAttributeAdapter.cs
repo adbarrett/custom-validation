@@ -25,7 +25,7 @@
 
 		public override string GetErrorMessage(ModelValidationContextBase validationContext)
 		{
-			return Attribute.ErrorMessage;
+			return Attribute.ErrorMessage ?? GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName());
 		}
 	}
 }

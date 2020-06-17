@@ -19,7 +19,7 @@
 
 		public override string FormatErrorMessage(string name)
 		{
-			return $"{name} is not true.";
+			return $"{name} must be true.";
 		}
 	}
 }

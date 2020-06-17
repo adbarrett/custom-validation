@@ -1,6 +1,6 @@
 ﻿namespace CustomValidationDemo.AttributeAdapters
 {
-	using CustomValidationDemo.Attributes;
+	using Attributes;
 	using Microsoft.AspNetCore.Mvc.DataAnnotations;
 	using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 	using Microsoft.Extensions.Localization;
@@ -19,7 +19,7 @@
 
 		public override string GetErrorMessage(ModelValidationContextBase validationContext)
 		{
-			return Attribute.ErrorMessage;
+			return Attribute.ErrorMessage ?? GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName());
 		}
 	}
 }
