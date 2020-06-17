@@ -4,6 +4,7 @@
 }
 
 <form>
+	<h1 class="h2 pt-3 pb-3">Testing IsTrue attribute</h1>
 	<div class="form-group form-check">
 		<input type="checkbox" class="form-check-input" asp-for="ThisCanBeAnything" />
 		<label class="form-check-label" asp-for="ThisCanBeAnything">This can be true or false</label>
@@ -14,17 +15,47 @@
 		<label class="form-check-label" asp-for="ThisMustBeTrue">This must be true</label>
 		<span class="text-danger" asp-validation-for="ThisMustBeTrue"></span>
 	</div>
-	<div class="form-check">
+
+
+
+	<h1 class="h2 pt-5 pb-3">Testing PasswordStrength attribute</h1>
+	<div class="form-group">
 		<label asp-for="Password">Password can be any strength</label>
 		<input class="form-control" asp-for="Password" />
 		<span class="text-danger" asp-validation-for="Password"></span>
 	</div>
-	<div class="form-check">
+	<div class="form-group">
 		<label asp-for="StrongPassword">Password must have at least one upper case letter, one lower case letter, one number and one special character</label>
 		<input class="form-control" asp-for="StrongPassword" />
 		<span class="text-danger" asp-validation-for="StrongPassword"></span>
 	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+	<h1 class="h2 pt-5 pb-3">Testing RequiredIfMatch attribute</h1>
+	<div class="form-group">
+		<label asp-for="Question1">Question 1</label>
+		<input class="form-control" asp-for="Question1" />
+		<span class="text-danger" asp-validation-for="Question1"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="RequiredIfQuestion1IsYes">Required if Question 1 is "Yes"</label>
+		<input class="form-control" asp-for="RequiredIfQuestion1IsYes" />
+		<span class="text-danger" asp-validation-for="RequiredIfQuestion1IsYes"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Question2">Question 2</label>
+		<select class="form-control" asp-for="Question2" asp-items="@Model.QuestionAnswers">
+			<option value="">Please select...</option>
+		</select>
+		<span class="text-danger" asp-validation-for="Question2"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="RequiredIfQuestion2IsYes">Required if Question 2 is "Yes"</label>
+		<input class="form-control" asp-for="RequiredIfQuestion2IsYes" />
+		<span class="text-danger" asp-validation-for="RequiredIfQuestion2IsYes"></span>
+	</div>
+	<button type="submit" class="btn btn-primary mt-5">Submit</button>
 </form>
 
 @section Scripts

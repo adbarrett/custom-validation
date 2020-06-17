@@ -5,3 +5,6 @@ http://gnomealone.co.uk/2019/12/09/custom-validation-in-asp-net-core-part-1-impl
 
 PasswordStrengthAttribute:  
 http://gnomealone.co.uk/2020/02/04/custom-validation-in-asp-net-core-part-2-implementing-the-passwordstrength-validation-attribute/
+
+RequiredIfMatchAttribute:
+http://gnomealone.co.uk/2020/04/12/custom-validation-in-asp-net-core-part-3-implementing-the-requiredifmatch-validation-attribute/
