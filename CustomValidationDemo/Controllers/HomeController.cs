@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CustomValidationDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using CustomValidationDemo.Models;
+using System.Diagnostics;
 
 namespace CustomValidationDemo.Controllers
 {
@@ -19,11 +15,6 @@ namespace CustomValidationDemo.Controllers
 		}
 
 		public IActionResult Index()
-		{
-			return View();
-		}
-
-		public IActionResult Privacy()
 		{
 			return View();
 		}
