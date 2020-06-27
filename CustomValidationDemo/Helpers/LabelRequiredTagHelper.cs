@@ -24,13 +24,20 @@ namespace CustomValidationDemo.Helpers
 
 			var isBool = metadata.ModelType.Name == "Boolean";
 
-			var isRequired = (!isBool && metadata.IsRequired) || HasAttribute(metadata, typeof(IsTrueAttribute));
+			var isRequired =
+				(!isBool && metadata.IsRequired) ||
+				HasAttribute(metadata, typeof(IsTrueAttribute)) ||
+				HasAttribute(metadata, typeof(RequiredIfMatchAttribute));
 
 			if (!isRequired)
 				return;
 
 			var sup = new TagBuilder("sup");
 			sup.InnerHtml.Append(" *");
+
+			if (HasAttribute(metadata, typeof(RequiredIfMatchAttribute)))
+				sup.Attributes.Add("hidden", "hidden");
+
 			output.Content.AppendHtml(sup);
 		}
 
