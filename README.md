@@ -8,3 +8,6 @@ http://gnomealone.co.uk/2020/02/04/custom-validation-in-asp-net-core-part-2-impl
 
 RequiredIfMatchAttribute:
 http://gnomealone.co.uk/2020/04/12/custom-validation-in-asp-net-core-part-3-implementing-the-requiredifmatch-validation-attribute/
+
+LabelRequiredTagHelper:
+https://gnomealone.co.uk/2020/06/27/automatically-add-asterisks-to-required-fields-in-asp-net-core/
