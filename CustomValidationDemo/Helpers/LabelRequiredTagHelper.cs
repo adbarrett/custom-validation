@@ -1,9 +1,13 @@
 namespace CustomValidationDemo.Helpers
 {
+	using Attributes;
+	using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 	using Microsoft.AspNetCore.Mvc.Rendering;
 	using Microsoft.AspNetCore.Mvc.TagHelpers;
 	using Microsoft.AspNetCore.Mvc.ViewFeatures;
 	using Microsoft.AspNetCore.Razor.TagHelpers;
+	using System;
+	using System.Linq;
 	using System.Threading.Tasks;
 
 	[HtmlTargetElement("label", Attributes = "asp-for")]
@@ -15,16 +19,25 @@ namespace CustomValidationDemo.Helpers
 		{
 			await base.ProcessAsync(context, output);
 
-			bool isBool = For.Metadata.ModelType.Name == "Boolean";
-			if (isBool)
+			if (!(For.Metadata is DefaultModelMetadata metadata))
 				return;
 
-			if (For.Metadata.IsRequired)
-			{
-				var sup = new TagBuilder("sup");
-				sup.InnerHtml.Append(" *");
-				output.Content.AppendHtml(sup);
-			}
+			var isBool = metadata.ModelType.Name == "Boolean";
+
+			var isRequired = (!isBool && metadata.IsRequired) || HasAttribute(metadata, typeof(IsTrueAttribute));
+
+			if (!isRequired)
+				return;
+
+			var sup = new TagBuilder("sup");
+			sup.InnerHtml.Append(" *");
+			output.Content.AppendHtml(sup);
+		}
+
+		private bool HasAttribute(DefaultModelMetadata metadata, Type type)
+		{
+			return metadata.Attributes.PropertyAttributes
+				.Any(i => i.GetType() == type);
 		}
 	}
 }
