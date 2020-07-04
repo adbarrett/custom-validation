@@ -55,6 +55,33 @@
 		<input class="form-control" asp-for="RequiredIfQuestion2IsYes" />
 		<span class="text-danger" asp-validation-for="RequiredIfQuestion2IsYes"></span>
 	</div>
+
+
+
+	<h1 class="h2 pt-5 pb-3">Testing DateRangeFromToday attribute attribute</h1>
+	<div class="form-group">
+		<label asp-for="MustBeTodayOrInThePast">Must be today or in the past</label>
+		<input class="form-control" asp-for="MustBeTodayOrInThePast" />
+		<span class="text-danger" asp-validation-for="MustBeTodayOrInThePast"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="MustBeFutureDate">Must be a future date</label>
+		<input class="form-control" asp-for="MustBeFutureDate" />
+		<span class="text-danger" asp-validation-for="MustBeFutureDate"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="MustBeWithinSevenDaysBeforeOrAfterToday">Must be today +/- 7 days</label>
+		<input class="form-control" asp-for="MustBeWithinSevenDaysBeforeOrAfterToday" />
+		<span class="text-danger" asp-validation-for="MustBeWithinSevenDaysBeforeOrAfterToday"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="MustBeToday">Must be today</label>
+		<input class="form-control" asp-for="MustBeToday" />
+		<span class="text-danger" asp-validation-for="MustBeToday"></span>
+	</div>
+
+
+
 	<button type="submit" class="btn btn-primary mt-5">Submit</button>
 </form>
 

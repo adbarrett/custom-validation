@@ -11,3 +11,6 @@ http://gnomealone.co.uk/2020/04/12/custom-validation-in-asp-net-core-part-3-impl
 
 LabelRequiredTagHelper:
 https://gnomealone.co.uk/2020/06/27/automatically-add-asterisks-to-required-fields-in-asp-net-core/
+
+DateRangeFromTodayAttribute:
+https://gnomealone.co.uk/2020/07/04/custom-validation-in-asp-net-core-part-4-implementing-the-daterangefromtoday-validation-attribute/

@@ -1,5 +1,6 @@
 ﻿using CustomValidationDemo.Attributes;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -37,5 +38,19 @@ namespace CustomValidationDemo.Models
 		public string RequiredIfQuestion2IsYes { get; set; }
 
 		public IEnumerable<SelectListItem> QuestionAnswers => new List<SelectListItem> { new SelectListItem("No", "No"), new SelectListItem("Yes", "Yes") };
+
+
+
+		[DateRangeFromToday(DatePart.Days, 0, StepType.AfterToday, true)]
+		public DateTime? MustBeTodayOrInThePast { get; set; }
+
+		[DateRangeFromToday(DatePart.Days, -1, StepType.BeforeToday, true)]
+		public DateTime? MustBeFutureDate { get; set; }
+
+		[DateRangeFromToday(DatePart.Days, 7, 7, true)]
+		public DateTime? MustBeWithinSevenDaysBeforeOrAfterToday { get; set; }
+
+		[DateRangeFromToday(DatePart.Days, 0, 0, true)]
+		public DateTime? MustBeToday { get; set; }
 	}
 }

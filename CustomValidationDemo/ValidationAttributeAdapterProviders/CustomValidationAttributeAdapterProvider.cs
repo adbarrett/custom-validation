@@ -13,17 +13,21 @@
 		public IAttributeAdapter GetAttributeAdapter(ValidationAttribute attribute,
 			IStringLocalizer stringLocalizer)
 		{
-			switch (attribute)
+			return attribute switch
 			{
-				case IsTrueAttribute isTrueAttribute:
-					return new IsTrueAttributeAdapter(isTrueAttribute, stringLocalizer);
-				case PasswordStrengthAttribute passwordStrengthAttribute:
-					return new PasswordStrengthAttributeAdapter(passwordStrengthAttribute, stringLocalizer);
-				case RequiredIfMatchAttribute requiredIfMatchAttribute:
-					return new RequiredIfMatchAttributeAdapter(requiredIfMatchAttribute, stringLocalizer);
-				default:
-					return _baseProvider.GetAttributeAdapter(attribute, stringLocalizer);
-			}
+				IsTrueAttribute isTrueAttribute =>
+					new IsTrueAttributeAdapter(isTrueAttribute, stringLocalizer),
+				PasswordStrengthAttribute passwordStrengthAttribute =>
+					new PasswordStrengthAttributeAdapter(
+						passwordStrengthAttribute, stringLocalizer),
+				RequiredIfMatchAttribute requiredIfMatchAttribute =>
+					new RequiredIfMatchAttributeAdapter(
+						requiredIfMatchAttribute, stringLocalizer),
+				DateRangeFromTodayAttribute dateRangeFromTodayAttribute =>
+					new DateRangeFromTodayAttributeAdapter(
+						dateRangeFromTodayAttribute, stringLocalizer),
+				_ => _baseProvider.GetAttributeAdapter(attribute, stringLocalizer)
+			};
 		}
 	}
 }
